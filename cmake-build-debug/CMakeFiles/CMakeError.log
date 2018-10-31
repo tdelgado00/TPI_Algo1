@@ -1,0 +1,35 @@
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/tomi/Documentos/Facultad/Algo 1/TPI_Algo1/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5bdda/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5bdda.dir/build.make CMakeFiles/cmTC_5bdda.dir/build
+make[1]: se entra en el directorio '/home/tomi/Documentos/Facultad/Algo 1/TPI_Algo1/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5bdda.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_5bdda.dir/CheckSymbolExists.c.o   -c "/home/tomi/Documentos/Facultad/Algo 1/TPI_Algo1/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c"
+Linking C executable cmTC_5bdda
+/home/tomi/Escritorio/clion-2018.2.1/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5bdda.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_5bdda.dir/CheckSymbolExists.c.o  -o cmTC_5bdda 
+CMakeFiles/cmTC_5bdda.dir/CheckSymbolExists.c.o: En la función `main':
+CheckSymbolExists.c:(.text+0x16): referencia a `pthread_create' sin definir
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_5bdda.dir/build.make:86: fallo en las instrucciones para el objetivo 'cmTC_5bdda'
+make[1]: *** [cmTC_5bdda] Error 1
+make[1]: se sale del directorio '/home/tomi/Documentos/Facultad/Algo 1/TPI_Algo1/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:121: fallo en las instrucciones para el objetivo 'cmTC_5bdda/fast'
+make: *** [cmTC_5bdda/fast] Error 2
+
+File /home/tomi/Documentos/Facultad/Algo 1/TPI_Algo1/cmake-build-debug/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
