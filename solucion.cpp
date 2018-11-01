@@ -2,18 +2,39 @@
 
 /********************************** EJERCICIO esValido **********************************/
 bool esValido(toroide t){
-    return true;
+    bool valido=true;
+    if(t.size()==0){
+        valido=false;
+    } else {
+        if(t[0].size()==0){
+            valido=false;
+        } else {
+            for(int i=1;i<t.size();i++){
+                if(t[i].size()!=t[0].size()) valido=false;
+            }
+        }
+    }
+    return valido;
 }
 
 /****************************** EJERCICIO posicionesVivas *******************************/
 vector<posicion> posicionesVivas(toroide t){
-    vector<posicion> res;
-    return res;
+    vector<posicion> vivas;
+
+    for(int i=0;i<t.size();i++){
+        for(int j=0;j<t[i].size();j++){
+            if(t[i][j]) vivas.push_back(make_tuple(i,j));
+        }
+    }
+
+    return vivas;
 }
 
 /***************************** EJERCICIO densidadPoblacion ******************************/
 float densidadPoblacion(toroide t){
-    float densidad = 0.0;
+    float cantVivas=posicionesVivas(t).size(); //defino como float para que sea división normal
+    int superficie=t.size()*t[0].size();
+    float densidad = cantVivas/superficie;
     return densidad;
 }
 
